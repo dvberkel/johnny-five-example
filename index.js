@@ -6,22 +6,31 @@ var redPin = 8;
 var yellowPin = 9;
 var greenPin = 10;
 
+var TrafficLight = function TrafficLight(redPin, yellowPin, greenPin) {
+    this.red = new five.Led(redPin);
+    this.yellow = new five.Led(yellowPin);
+    this.green = new five.Led(greenPin);
+}
+TrafficLight.prototype.stop = function stopSignal() {
+    this.red.on();
+    this.yellow.off();
+    this.green.off();
+}
+TrafficLight.prototype.go = function goSignal() {
+    this.red.off();
+    this.yellow.off();
+    this.green.on();
+}
+
 board.on('ready', function(){
     var led = new five.Led(13);
     led.strobe();
 
-    var red = new five.Led(redPin);
-    var yellow = new five.Led(yellowPin);
-    var green = new five.Led(greenPin);
-
-    red.on();
-    yellow.off();
-    green.off();
+    var trafficLight = new TrafficLight(redPin, yellowPin, greenPin);
+    trafficLight.stop();
 
     this.repl.inject({
 	led : led,
-	red : red,
-	yellow : yellow,
-	green : green
+	trafficLight : trafficLight
     });
 });
