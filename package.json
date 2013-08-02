@@ -1,0 +1,14 @@
+{
+  "name": "johnny-five-example",
+  "version": "0.0.0",
+  "description": "trying out johnny-fice",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Daan van Berkel",
+  "license": "MIT",
+  "devDependencies": {
+    "johnny-five": "~0.7.1"
+  }
+}
